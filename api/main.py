@@ -93,3 +93,14 @@ def ask_question(request: AskRequest):
             status_code=500,
             detail=f"Could not generate answer: {str(e)}"
         )
+# --------------------------------------------------
+# Root Endpoint
+# --------------------------------------------------
+
+@app.get("/")
+def root():
+    return {
+        "message": "YouTube Conversational RAG API is running",
+        "docs": "/docs",
+        "health": "/health"
+    }
